@@ -18,7 +18,16 @@ block_list = []
 
 def add_block(text):
     block = Block(block_order, text)
-    block_list.push(block)
-    block_order += 1
+    block_list.append(block)
 
 
+# testing functions
+add_block('text 1')
+add_block('text 2')
+add_block('text 3')
+
+
+for block in block_list:
+    print(block)
+    block.read_words()
+    block.get_input()
