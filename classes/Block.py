@@ -4,9 +4,9 @@ class Block:
         self.id = id
         self.text = text
     
-    def get_input():
+    def get_input(self):
         input()
 
-    def read_words():
+    def read_words(self):
         print(self.text)
 
