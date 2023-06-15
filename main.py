@@ -1,33 +1,33 @@
 import importlib.util
 
-# file path to block class
-block_path = 'classes\Block.py'
+# function to load in classes 
+def load_class(class_name):
 
-# load module from path
-spec = importlib.util.spec_from_file_location('Block', block_path)
-my_module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(my_module)
+    # file path to class
+    path = 'classes/{}.py'.format(class_name)
 
-# Block class
-Block = my_module.Block
+    # load module from path
+    spec = importlib.util.spec_from_file_location(class_name, path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
 
-block_order = 0
+    # return class
+    return getattr(module, class_name)
 
-block_list = []
+# loading classes from class folder
+Block = load_class('Block')
+LinkedList = load_class('LinkedList')
 
+# create new block classes
+block_1 = Block('this is text one')
+block_2 = Block('this is text two')
 
-def add_block(text):
-    block = Block(block_order, text)
-    block_list.append(block)
+# linked list which will hold all blocks
+block_list = LinkedList()
 
+# add to the end of linked list
+block_list.append(block_1)
+block_list.append(block_2)
 
-# testing functions
-add_block('text 1')
-add_block('text 2')
-add_block('text 3')
-
-
-for block in block_list:
-    print(block)
-    block.read_words()
-    block.get_input()
+# print list
+block_list.print_list()
