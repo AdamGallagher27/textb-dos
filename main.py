@@ -21,6 +21,8 @@ LinkedList = load_class('LinkedList')
 # create new block classes
 block_1 = Block('this is text one')
 block_2 = Block('this is text two')
+block_prepend = Block('prepend me')
+block_index = Block('add me to index 2')
 
 # linked list which will hold all blocks
 block_list = LinkedList()
@@ -28,6 +30,8 @@ block_list = LinkedList()
 # add to the end of linked list
 block_list.append(block_1)
 block_list.append(block_2)
+block_list.prepend(block_prepend)
+block_list.add_index(2, block_index)
 
 # print list
 block_list.print_list()
