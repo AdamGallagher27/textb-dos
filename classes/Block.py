@@ -1,8 +1,8 @@
 
 class Block:
-    def __init__(self, id, text):
-        self.id = id
+    def __init__(self, text):
         self.text = text
+        self.next = None
     
     def get_input(self):
         input()
